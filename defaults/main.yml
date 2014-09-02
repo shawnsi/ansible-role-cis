@@ -69,3 +69,18 @@ disable_ipv6: no
 #ssh_allow_users:
 #ssh_deny_groups:
 #ssh_deny_users:
+
+# Verify File System Permissions (CIS Section 9.1)
+# This section includes some tasks that require find or rpm commands that will
+# search all mounted filesystems.  These are tasks that should only be enabled
+# if desired for auditing purposes.
+#
+# verify_find:
+#   yes: run find commands
+#   no: do not run find commands
+#
+# verify_rpm:
+#   yes: run rpm commands
+#   no: do not run rpm commands
+verify_find: no
+verify_rpm: no
