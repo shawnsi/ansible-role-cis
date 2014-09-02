@@ -92,7 +92,7 @@
       - section9.1.9
 
   - name: 9.1.10 Find World Writable Files (Not Scored)
-    command: "df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -0002"
+    shell: "df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -0002"
     when: verify_find
     tags:
       - notscored
@@ -100,7 +100,7 @@
       - section9.1.10
 
   - name: 9.1.11 Find Un-owned Files and Directories (Scored)
-    command: "df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nouser -ls"
+    shell: "df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nouser -ls"
     when: verify_find
     tags:
       - scored
@@ -108,7 +108,7 @@
       - section9.1.11
 
   - name: 9.1.12 Find Un-grouped Files and Directories (Scored)
-    command: "df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nogroup -ls"
+    shell: "df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nogroup -ls"
     when: verify_find
     tags:
       - scored
